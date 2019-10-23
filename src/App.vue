@@ -1,27 +1,26 @@
 <template>
     <div id="app">
-        <label for="input">Text: </label>
-        <input @keypress.enter="onAddText" id="input" v-model="text" />
         <ul>
-            <li @dblclick="onDeleteText(index)"
-                v-bind:key="index"
-                v-for="(item, index) in items"
-            >
-                {{ item }}
-            </li>
+            <Item :key="index"
+                  v-bind="item"
+                  v-for="(item, index) in items"
+            />
         </ul>
     </div>
 </template>
 
 <script>
+  import Item from './components/File';
+
   export default {
     name: 'app',
+    components: { Item },
     data() {
       return {
         text: 'empty',
         items: [
-          'Item 1',
-          'Item 2'
+          { preview: 'preview 1', name: 'name 1' },
+          { preview: 'preview 2', name: 'name 2' }
         ]
       };
     },
