@@ -1,20 +1,15 @@
 <template>
     <div id="app">
-        <ul>
-            <Item :key="index"
-                  v-bind="item"
-                  v-for="(item, index) in items"
-            />
-        </ul>
+        <Files :items="items" />
     </div>
 </template>
 
 <script>
-  import Item from './components/File';
+  import Files from './components/Files';
 
   export default {
     name: 'app',
-    components: { Item },
+    components: { Files },
     data() {
       return {
         text: 'empty',
@@ -23,14 +18,6 @@
           { preview: 'preview 2', name: 'name 2' }
         ]
       };
-    },
-    methods: {
-      onAddText() {
-        this.items.push(this.text);
-      },
-      onDeleteText(index) {
-        this.items.splice(index, 1);
-      }
     }
   };
 </script>
