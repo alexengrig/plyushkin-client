@@ -1,15 +1,17 @@
 <template>
     <div id="app">
+        <Panel />
         <Files :items="items" />
     </div>
 </template>
 
 <script>
   import Files from './components/Files';
+  import Panel from './components/Panel';
 
   export default {
     name: 'app',
-    components: { Files },
+    components: { Panel, Files },
     data() {
       return {
         text: 'empty',
